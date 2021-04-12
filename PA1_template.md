@@ -19,7 +19,7 @@ total_steps <- aggregate(steps~date, data=new.activity, sum)
 
 library(ggplot2)
 
-plot1<- ggplot(new.activity, aes(date,steps)) + geom_bar(stat="identity", binwidth=.5) + 
+ggplot(new.activity, aes(date,steps)) + geom_bar(stat="identity", binwidth=.5) + 
   labs(title="Histogram of Total Number of Steps Taken Each Day", x="Date", 
        y="Total number of steps")
 ```
@@ -27,6 +27,8 @@ plot1<- ggplot(new.activity, aes(date,steps)) + geom_bar(stat="identity", binwid
 ```
 ## Warning: Ignoring unknown parameters: binwidth
 ```
+
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
 Mean and median of total number of steps 
 
@@ -58,10 +60,12 @@ averages <- aggregate(new.activity$steps, list(as.numeric(as.character(new.activ
 names(averages)[2]<- "Avg.Steps"
 names(averages)[1]<- "interval"
 
-plot2<- ggplot(averages, aes(interval, Avg.Steps)) + geom_line(color="orange", 
+ggplot(averages, aes(interval, Avg.Steps)) + geom_line(color="orange", 
                   size=0.7) + labs(title="Time Series Intervals Plot of 5-min intervals",
                                    x="5-min intervals", y="Average number of steps per day")
 ```
+
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 Maximum number of steps in 5-min interval across all dates
 
@@ -114,7 +118,7 @@ Make a histogram of the total number of steps taken each day and Calculate and r
 
 
 ```r
-plot3 <- ggplot(imp_activity, aes(date, steps)) + geom_bar(stat="identity", binwidth=.5) +
+ggplot(imp_activity, aes(date, steps)) + geom_bar(stat="identity", binwidth=.5) +
         labs(title="Total Number of Steps Taken Each Day (Imputed Data)", x="Date", 
                     y="Total number of steps")
 ```
@@ -122,6 +126,8 @@ plot3 <- ggplot(imp_activity, aes(date, steps)) + geom_bar(stat="identity", binw
 ```
 ## Warning: Ignoring unknown parameters: binwidth
 ```
+
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
 
 ```r
 total_steps_imp <- aggregate(steps~date, data=imp_activity, sum)
@@ -177,11 +183,13 @@ new.averages <- aggregate(imp_activity$steps,
 
 names(new.averages)[3] <- "Mean.Steps"
 
-plot4<- ggplot(new.averages, aes(interval, Mean.Steps)) + geom_line(color="orange", size=0.7) + 
+ggplot(new.averages, aes(interval, Mean.Steps)) + geom_line(color="orange", size=0.7) + 
   facet_grid(rows=vars(weekdays)) + 
   labs(title="Average number of steps across week and weekend days", 
                                          x="Interval", y="Average")
 ```
+
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
 
 
 
