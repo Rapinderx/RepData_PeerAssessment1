@@ -28,12 +28,6 @@ plot1<- ggplot(new.activity, aes(date,steps)) + geom_bar(stat="identity", binwid
 ## Warning: Ignoring unknown parameters: binwidth
 ```
 
-```r
-print(plot1)
-```
-
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
-
 Mean and median of total number of steps 
 
 
@@ -67,10 +61,7 @@ names(averages)[1]<- "interval"
 plot2<- ggplot(averages, aes(interval, Avg.Steps)) + geom_line(color="orange", 
                   size=0.7) + labs(title="Time Series Intervals Plot of 5-min intervals",
                                    x="5-min intervals", y="Average number of steps per day")
-print(plot2)
 ```
-
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 Maximum number of steps in 5-min interval across all dates
 
@@ -133,12 +124,6 @@ plot3 <- ggplot(imp_activity, aes(date, steps)) + geom_bar(stat="identity", binw
 ```
 
 ```r
-print(plot3)
-```
-
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
-
-```r
 total_steps_imp <- aggregate(steps~date, data=imp_activity, sum)
 
 mean(total_steps_imp$steps)
@@ -196,10 +181,7 @@ plot4<- ggplot(new.averages, aes(interval, Mean.Steps)) + geom_line(color="orang
   facet_grid(rows=vars(weekdays)) + 
   labs(title="Average number of steps across week and weekend days", 
                                          x="Interval", y="Average")
-print(plot4)
 ```
-
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
 
 
 
